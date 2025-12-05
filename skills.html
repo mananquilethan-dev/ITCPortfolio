@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Skills - Ethan's Portfolio</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <style>
+        /* Page base */
+        :root{
+            --bg: #F5F7F7;            
+            --body-text: #2A3A39;     
+            --muted: #6e8a88;         
+
+            --panel: #2b4746;         
+            --panel-text: #FBF6F3;    
+            --accent: #8a4a2f;        
+            --card-bg: #FBF6F3;       
+            --card-text: #24413f;     
+            --heading: #24413f;       
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--body-text);
+            transition: 0.25s ease;
+        }
+
+        
+        .top-bar {
+            width: 95%;
+            max-width: 1100px;
+            margin: 20px auto 0;
+            background-color: var(--panel);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 18px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .top-bar a {
+            color: var(--panel-text);
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+        .top-bar a:hover { color: var(--accent); transform: scale(1.03); }
+
+        .top-right {
+            display:flex;
+            gap:12px;
+            align-items:center;
+        }
+
+        .school-logo {
+            width:50px; height:50px; border-radius:10px; overflow:hidden;
+        }
+        .school-logo img{ width:100%; height:100%; object-fit:contain; display:block; }
+
+        .dark-toggle {
+            width:48px; height:48px; border-radius:12px; overflow:hidden;
+            display:flex; align-items:center; justify-content:center; cursor:pointer;
+        }
+        .dark-toggle img{ width:100%; height:100%; object-fit:cover; display:block; }
+
+        
+        .skills-area {
+            max-width: 980px;
+            margin: 48px auto;
+            padding: 0 18px 36px;
+        }
+
+        
+        .skills-container {
+            display:flex;
+            gap:24px;
+            overflow-x:auto;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            padding-bottom:10px;
+        }
+        
+        .skill {
+            scroll-snap-align: start;
+            flex: 0 0 380px;          
+            max-width: 380px;
+            min-width: 320px;
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding:16px;
+            box-sizing:border-box;
+            display:flex;
+            flex-direction:column;
+            gap:12px;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+        }
+
+        
+        .skill img.top {
+            width:120px; height:120px; border-radius:12px; object-fit:cover;
+        }
+        .skill img.bottom {
+            width:100px; height:100px; border-radius:10px; object-fit:cover; align-self:flex-start;
+        }
+
+        .skill h3 { margin:0; font-size:20px; color: var(--heading); }
+        .skill p { margin:0; font-size:15px; line-height:1.5; text-align:center; color: var(--muted); }
+
+        .back-link {
+            display:block;
+            text-align:center;
+            margin-top:18px;
+            font-weight:bold;
+            color: var(--accent);
+            text-decoration:none;
+        }
+        .back-link:hover{ color: #ad6a4f; }
+
+        
+        .skill:nth-child(1){ background: #FFF8F4; } 
+        .skill:nth-child(2){ background: #F3FBF8; } 
+        .skill:nth-child(3){ background: #FFF9FB; } 
+        .skill:nth-child(4){ background: #F6F8FF; } 
+        .skill:nth-child(5){ background: #FFFDF0; } 
+        .skill:nth-child(6){ background: #F7FFF6; } 
+        .skill:nth-child(7){ background: #F4F8FF; } 
+
+        
+        body.dark-mode{
+            --bg: #242f30;
+            --body-text: #efe7dd;
+            --muted: #d9cfbf;
+
+            --panel: #1e2a2a;
+            --panel-text: #efe7dd;
+            --accent: #f4d48a;
+
+            --card-bg: #473f3c;
+            --card-text: #efe7dd;
+            --heading: #efe7dd;
+        }
+
+        
+        body.dark-mode .skill{ 
+            background: var(--card-bg) !important;
+            color: var(--card-text);
+            box-shadow:0 6px 12px rgba(0,0,0,0.4);
+        }
+        
+        body.dark-mode .skill h3 { color: var(--heading); }
+        body.dark-mode .skill p { color: var(--muted); }
+        body.dark-mode .back-link{ color: var(--panel-text); }
+        .back-link:hover{ color: var(--panel-text); }
+
+        
+        .skills-container::-webkit-scrollbar { height:10px; }
+        .skills-container::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.12); border-radius:10px; }
+
+        
+        @media (max-width:760px){
+            .skill{ flex:0 0 300px; max-width:300px; min-width:260px; }
+            .skills-area { padding-left:12px; padding-right:12px; }
+        }
+    </style>
+</head>
+<body>
+
+    
+    <div class="top-bar">
+        <a href="about.html">BACK</a>
+
+        <div class="top-right">
+            <div class="school-logo">
+                <img src="usclogoo.png" alt="School Logo">
+            </div>
+
+            <div class="dark-toggle" onclick="document.body.classList.toggle('dark-mode')">
+                <img src="displaymode.jpg" alt="toggle">
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="skills-area">
+        <div class="skills-container">
+
+            
+            <div class="skill">
+                <img class="top" src="ctop1.png" alt="C top">
+                <h3>C</h3>
+                <p>I know the basics of C used for school projects: variables, loops, conditionals, and functions. I can write small programs, handle input/output, and debug simple logic errors. I’m building confidence with pointers and arrays.</p>
+                <img class="bottom" src="cbottom.jpg" alt="C bottom">
+            </div>
+
+            
+            <div class="skill">
+                <img class="top" src="soundeng1.jpg" alt="Sound top">
+                <h3>Sound Engineering</h3>
+                <p>I LOVE writing songs and constructing instrumentals. I have published a handful of songs that I developed myself in Digital Audio Workstations. I've always been passionate when it comes to music production and I also want to further enhance my skills in terms of sound engineering within the field of technology</p>
+                <img class="bottom" src="soundeng2.jpg" alt="Sound bottom">
+            </div>
+
+            
+            <div class="skill">
+                <img class="top" src="htmltop.png" alt="HTML top">
+                <h3>HTML</h3>
+                <p>I can build page structure with semantic HTML: headings, sections, images, links, and forms. I focus on clear markup so content is accessible and easy to style later with CSS.</p>
+                <img class="bottom" src="htmlbottom.jpg" alt="HTML bottom">
+            </div>
+
+            
+            <div class="skill">
+                <img class="top" src="csstop.png" alt="CSS top">
+                <h3>CSS</h3>
+                <p>I style pages with CSS — layouts, spacing, colors, and hover effects. I use flexbox/grid for structure, manage typography, and add small transitions so interfaces feel polished without being flashy.</p>
+                <img class="bottom" src="cssbottom.jpg" alt="CSS bottom">
+            </div>
+
+            
+            <div class="skill">
+                <img class="top" src="javatop.png" alt="Java top">
+                <h3>JavaScript</h3>
+                <p>I’ve used JavaScript at a beginner level: classes, objects, methods, and control flow. Mostly exercises and small assignments — comfortable reading code and solving simple programming tasks.</p>
+                <img class="bottom" src="javabottom.webp" alt="Java bottom">
+            </div>
+
+            
+    </div>
+
+</body>
+</html>

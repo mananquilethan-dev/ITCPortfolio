@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ethan's Portfolio</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            transition: 0.3s ease;
+            background-color: #F5EFEE;
+            color: #1B3A39;
+        }
+
+        
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+
+        
+        .left {
+            width: 60%;
+            background-color: #ceeaea;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            transition: 0.3s ease;
+        }
+
+        
+        .school-logo {
+            width: 130px;
+            height: 130px;
+            border-radius: 25px;
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+
+        .school-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        
+        .title {
+            font-size: 48px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            color: #1B3A39;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.15);
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        
+        .subtitle {
+            font-size: 22px;
+            color: #9A4D2E;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        
+        .right {
+            width: 40%;
+            background-color: #173534;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 0 40px;
+            color: white;
+            transition: 0.3s ease;
+            position: relative;
+        }
+
+        
+.menu-link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin: 35px 0; 
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 32px; 
+    transition: 0.3s;
+    letter-spacing: 2px; 
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.35); 
+}
+
+.menu-link:hover {
+    color: #DCCB7A;
+    transform: scale(1.12); 
+    text-shadow: 3px 3px 10px rgba(0,0,0,0.45);
+}
+
+
+.hover-img {
+    width: 90px; 
+    height: 90px;
+    object-fit: contain;
+    position: absolute;
+    left: -120px;
+    opacity: 0;
+    transition: 0.45s ease;
+    pointer-events: none;
+}
+
+.menu-link:hover .hover-img {
+    left: -120px; 
+    opacity: 1;
+}
+
+
+        .line {
+            width: 60%;
+            height: 1px;
+            background-color: #5A7473;
+            margin: 20px 0;
+            transition: 0.3s ease;
+        }
+
+        
+        .dark-mode {
+            background-color: #1e2a2a;
+            color: #f3e6d3;
+        }
+
+        .dark-mode .left {
+            background-color: #2a3d3c;
+        }
+
+        .dark-mode .right {
+            background-color: #0f1d1c;
+        }
+
+        .dark-mode .title {
+            color: #f3e6d3;
+        }
+
+        .dark-mode .subtitle {
+            color: #d9ab79;
+        }
+
+        .dark-mode .line {
+            background-color: #8a9c9b;
+        }
+
+        .dark-mode .menu-link:hover {
+            color: #f4d48a;
+        }
+
+        
+        .dark-toggle {
+            width: 60px;
+            height: 60px;
+            border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            transition: 0.3s;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 999;
+        }
+
+        .dark-toggle img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 12px;
+            padding: 6px;
+        }
+
+        .dark-toggle:hover {
+            transform: scale(1.08);
+        }
+
+        
+        .about-bubble-container {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .about-bubble {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.25);
+            transition: transform 0.3s;
+            background-color: #F5EFEE;
+        }
+
+        .about-bubble img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .about-bubble:hover {
+            transform: scale(1.1);
+        }
+
+        .about-text {
+            color: #173534;
+            font-weight: bold;
+            background-color: #FDF4EF;
+            padding: 6px 12px;
+            border-radius: 12px;
+            font-size: 14px;
+            white-space: nowrap;
+            transition: 0.3s;
+        }
+
+        .about-bubble-container:hover .about-text {
+            font-size: 16px;
+            transform: scale(1.1);
+        }
+
+    </style>
+</head>
+<body>
+
+    
+    <div class="dark-toggle" onclick="toggleDarkMode()">
+        <img src="displaymode.jpg" alt="Toggle Dark Mode">
+    </div>
+
+    <div class="container">
+
+        
+        <div class="left">
+            <div class="school-logo">
+                <img src="usclogoo.png" alt="School Logo">
+            </div>
+            <div class="title">ETHAN’S PORTFOLIO</div>
+            <div class="subtitle">INTRODUCTION TO COMPUTING</div>
+        </div>
+
+        
+        <div class="right">
+
+            
+            <a href="start.html" class="menu-link">
+                <img src="portlogo.ico" class="hover-img">
+                START
+            </a>
+
+            <div class="line"></div>
+
+            
+            <a href="contacts.html" class="menu-link">
+                <img src="contactshov.png" class="hover-img">
+                CONTACTS
+            </a>
+
+        </div>
+    </div>
+
+    
+    <a href="about.html" class="about-bubble-container">
+        <div class="about-text">About Me</div>
+        <div class="about-bubble">
+            <img src="itan2.jpg" alt="Ethan">
+        </div>
+    </a>
+
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle("dark-mode");
+        }
+    </script>
+
+</body>
+</html>

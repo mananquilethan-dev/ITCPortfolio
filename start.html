@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Start - Ethan's Portfolio</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #ceeaea;
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+            transition: background-color 0.3s, color 0.3s;
+            color: #333;
+        }
+
+        
+        body.dark-mode {
+            background-color: #2e2a29;
+            color: #e8e2df;
+        }
+
+        
+        .top-bar {
+            width: 95%;
+            max-width: 1100px;
+            background-color: #2b4746;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            margin: 20px auto 0;
+            border-radius: 14px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.2);
+        }
+
+        .top-bar a {
+            color: #d6e0e0;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+            transition: 0.25s;
+        }
+
+        .top-bar a:hover {
+            color: #f1e542;
+            transform: scale(1.05);
+        }
+
+        body.dark-mode .top-bar a {
+            color: #e8e2df;
+        }
+
+        body.dark-mode .top-bar {
+            background-color: #3a3430;
+        }
+
+        
+        .school-logo {
+            width: 55px;
+            height: 55px;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .school-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        
+        .toggle-btn {
+            margin-left: 15px;
+            cursor: pointer;
+            font-size: 16px;
+            background: #e5d7d2;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.15);
+            transition: 0.25s;
+        }
+
+        .toggle-btn:hover {
+            transform: scale(1.08);
+            background: #d8c7c1;
+        }
+
+        
+        .grid-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .grid {
+            width: 100%;
+            max-width: 1200px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 50px;
+            padding: 0 20px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        
+        .portfolio-box {
+            width: 200px;
+            height: 100px;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: 0.25s ease;
+            border-radius: 14px;
+            box-shadow: 2px 2px 6px rgba(0,0,0,0.15);
+            background-color: #2b4746;
+            position: relative;
+            cursor: pointer;
+        }
+
+        
+        .portfolio-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: 0.3s ease;
+        }
+
+        
+        .portfolio-box img.hover {
+            display: none;
+        }
+
+        a:hover .portfolio-box img.default {
+            display: none;
+        }
+
+        a:hover .portfolio-box img.hover {
+            display: block;
+            transform: scale(1.08);
+        }
+
+        
+        .portfolio-name {
+            margin-top: 10px;
+            font-weight: bold;
+            font-size: 18px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+            transition: 0.25s ease;
+        }
+
+        a:hover .portfolio-name {
+            transform: scale(1.06);
+            color: #7b3a20;
+        }
+
+        a {
+            text-decoration: none;
+            color: #173534;
+        }
+
+        body.dark-mode a {
+            color: #e8e2df;
+        }
+
+        
+        .page-numbers {
+            text-align: center;
+            margin-top: 25px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .page-numbers a {
+            margin: 0 10px;
+            color: #173534;
+            text-decoration: none;
+            transition: 0.25s ease;
+        }
+
+        .page-numbers a:hover {
+            color: #7b3a20;
+            transform: scale(1.15);
+        }
+
+        .active {
+            color: #D08A32;
+        }
+
+        body.dark-mode .portfolio-box {
+            background-color: #4c423e;
+            box-shadow: 2px 2px 8px rgba(0,0,0,0.35);
+        }
+
+        
+        .bubble {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background-color: #FDF4EF;
+            border-radius: 50px;
+            padding: 10px 15px;
+            display: flex;
+            align-items: center;
+            box-shadow: 2px 2px 8px rgba(0,0,0,0.25);
+            transition: 0.25s;
+        }
+
+        .bubble img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 10px;
+            object-fit: cover;
+        }
+
+        .bubble span {
+            font-weight: bold;
+            color: #173534;
+        }
+
+        body.dark-mode .bubble {
+            background-color: #4c423e;
+        }
+
+        body.dark-mode .bubble span {
+            color: #e8e2df;
+        }
+
+        
+        .preview-bar {
+            position: absolute;
+            bottom: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 220px;
+            padding: 6px 10px;
+            background-color: #fff1e6;
+            color: #173534;
+            font-size: 14px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+            opacity: 0;
+            pointer-events: none;
+            transition: 0.3s;
+            z-index: 10;
+        }
+
+        .portfolio-box:hover .preview-bar {
+            bottom: -70px;
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        body.dark-mode .preview-bar {
+            background-color: #645849;
+            color: #e8e2df;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    
+    <div class="top-bar">
+        <a href="index.html">HOME</a>
+
+        <div style="display: flex; align-items: center; gap: 12px;">
+            <div class="school-logo">
+                <img src="usclogoo.png" alt="School Logo">
+            </div>
+
+            <button class="toggle-btn" onclick="toggleMode()">LIGHT/DARK MODE</button>
+        </div>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    
+
+    
+    <div class="grid-container">
+        <div class="grid">
+
+            
+            <a href="portfolio1.html">
+                <div class="portfolio-box">
+                    <img src="portlogo.ico" class="default" alt="Portfolio 1">
+                    <img src="openport - Copy.png" class="hover" alt="Portfolio 1 Open">
+                    <div class="preview-bar">Computer Science as a Discipline, 5 Computing Disciplines</div>
+                </div>
+                <div class="portfolio-name">PORTFOLIO 1</div>
+            </a>
+
+            
+            <a href="port2.html">
+                <div class="portfolio-box">
+                    <img src="portlogo.ico" class="default" alt="Portfolio 2">
+                    <img src="openport.png" class="hover" alt="Portfolio 2 Open">
+                    <div class="preview-bar">Data, Information, and Information Systems</div>
+                </div>
+                <div class="portfolio-name">PORTFOLIO 2</div>
+            </a>
+
+            
+            <a href="port3.html">
+                <div class="portfolio-box">
+                    <img src="portlogo.ico" class="default" alt="Portfolio 3">
+                    <img src="openport.png" class="hover" alt="Portfolio 3 Open">
+                    <div class="preview-bar">Number Systems: Comprehensive Study</div>
+                </div>
+                <div class="portfolio-name">PORTFOLIO 3</div>
+            </a>
+
+            
+            <a href="port4.html">
+                <div class="portfolio-box">
+                    <img src="portlogo.ico" class="default" alt="Portfolio 4">
+                    <img src="openport.png" class="hover" alt="Portfolio 4 Open">
+                    <div class="preview-bar">Computer Hardware & Software</div>
+                </div>
+                <div class="portfolio-name">PORTFOLIO 4</div>
+            </a>
+
+            
+            <a href="port5.html">
+                <div class="portfolio-box">
+                    <img src="portlogo.ico" class="default" alt="Portfolio 5">
+                    <img src="openport.png" class="hover" alt="Portfolio 5 Open">
+                    <div class="preview-bar">Different Types of Motherboards</div>
+                </div>
+                <div class="portfolio-name">PORTFOLIO 5</div>
+            </a>
+
+            
+            <a href="port6.html">
+                <div class="portfolio-box">
+                    <img src="portlogo.ico" class="default" alt="Portfolio 6">
+                    <img src="openport.png" class="hover" alt="Portfolio 6 Open">
+                    <div class="preview-bar">Different Types of Computers</div>
+                </div>
+                <div class="portfolio-name">PORTFOLIO 6</div>
+            </a>
+
+        </div>
+    </div>
+
+    
+
+    
+    <div class="bubble">
+        <img src="itan3.jpg" alt="My Face">
+        <span>Please select a portfolio!</span>
+    </div>
+
+    <script>
+        function toggleMode() {
+            document.body.classList.toggle("dark-mode");
+        }
+    </script>
+
+</body>
+</html>

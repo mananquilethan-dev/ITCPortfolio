@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Portfolio 6 - Types of Computers</title>
+    <style>
+
+.topbar {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 95%;                     
+    max-width: 1100px;              
+    background-color: #2b4746;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 20px;
+    border-radius: 14px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+    z-index: 999;
+    margin-top: 15px;
+}
+.school-logo {
+    height: 45px;
+    width: 45px;
+    object-fit: contain;
+}
+.home-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    background: #e5d7d2;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.15);
+    font-size: 15px;
+    font-weight: bold;
+    color: #5a4d48;
+    text-decoration: none;
+    transition: 0.25s;
+}
+.home-btn:hover {
+    background: #d8c7c1;
+    transform: scale(1.05);
+}
+.home-btn img {
+    width: 18px;
+    height: 18px;
+}
+.toggle-btn {
+    cursor: pointer;
+    font-size: 18px;
+    background: none;
+    border: none;
+    margin-left: 15px;
+    color: #5a4d48;
+    padding: 8px 14px;
+    border-radius: 12px;
+    box-shadow: 2px 2px 6px rgba(0,0,0,0.15);
+    transition: 0.25s;
+}
+.toggle-btn:hover {
+    transform: scale(1.1);
+}
+
+
+.dark-mode {
+    background-color: #2e2a29;
+    color: #e8e2df;
+}
+.dark-mode .topbar {
+    background: #2f2b29;
+}
+.dark-mode .home-btn {
+    background: #3c3533;
+    color: #e8e2df;
+}
+.dark-mode .home-btn:hover {
+    background: #4a4340;
+}
+.dark-mode .toggle-btn {
+    color: #fff;
+}
+.dark-mode .school-logo {
+    filter: brightness(0.85);
+}
+.dark-mode table th {
+    background-color: #7b3a20;
+    color: #f0e7e3;
+}
+.dark-mode table td {
+    background-color: #4c423e;
+    color: #e8e2df;
+}
+
+
+body {
+    margin: 0;
+    padding-top: 100px;
+    font-family: Arial, sans-serif;
+    background-color: #F5EFEE;
+    color: #333;
+    line-height: 1.6;
+}
+.container {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+h1 {
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 40px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+h2 {
+    font-size: 28px;
+    margin-top: 30px;
+}
+p {
+    margin-bottom: 15px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 14px;
+}
+table, th, td {
+    border: 1px solid #ccc;
+}
+th, td {
+    padding: 10px;
+    text-align: center;
+}
+th {
+    background-color: #9A4D2E;
+    color: white;
+}
+td {
+    background-color: #FDF4EF;
+}
+.back-home {
+    display: block;
+    text-align: center;
+    margin-top: 50px;
+    font-weight: bold;
+    font-size: 20px;
+    color: #173534;
+}
+.back-home:hover {
+    color: #7b3a20;
+}
+a {
+    color: #7b3a20;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+    </style>
+</head>
+<body>
+
+
+<div class="topbar">
+    <img src="usclogoo.png" class="school-logo">
+    <a href="index.html" class="home-btn"><img src="homeicon.png">Home</a>
+    <button class="toggle-btn" onclick="toggleMode()">🌙</button>
+</div>
+
+<div class="container">
+    <h1>Comparative Study on Different Types of Computers</h1>
+
+    <h2>Introduction</h2>
+    <p>Computers come in various types, sizes, and performance levels, designed to handle specific tasks in different environments. From the extremely powerful supercomputers used for scientific simulations to the compact microcomputers used at home, each type has a distinct purpose. This study aims to compare different types of computers, specifically their CPU, memory, processing speed, calculating power, working principle, energy consumption, and field of use.</p>
+
+    <h2>Discussion</h2>
+    <p>The classification of computers depends on performance, size, and usage. Supercomputers are the fastest, capable of solving complex scientific calculations at trillions of operations per second. Mainframe computers are designed for heavy data processing in banks, insurance, and government institutions. Minicomputers serve as mid-range systems used in small organizations. Servers handle requests and provide services to multiple users or clients simultaneously. Workstations are high-performance personal computers used for technical or scientific applications. Microcomputers (personal computers, laptops, tablets) are the most common and affordable type, used for general tasks.</p>
+
+    <h2>Comparative Data of Different Types of Computers</h2>
+    <table>
+        <tr>
+            <th>Type</th>
+            <th>Name/Brand</th>
+            <th>CPU</th>
+            <th>Memory</th>
+            <th>Processing Speed</th>
+            <th>Calculating Power</th>
+            <th>Working Principle</th>
+            <th>Energy Consumption</th>
+            <th>Field of Use</th>
+        </tr>
+        <tr>
+            <td>Supercomputer</td>
+            <td>IBM Summit</td>
+            <td>IBM POWER9 (22-core)</td>
+            <td>Up to 250 PB</td>
+            <td>200 petaflops</td>
+            <td>~200,000 trillion FLOPS</td>
+            <td>Processes vast data in parallel across thousands of processors</td>
+            <td>Very High (10–15 MW)</td>
+            <td>Weather forecasting, nuclear simulations, AI research</td>
+        </tr>
+        <tr>
+            <td>Mainframe Computer</td>
+            <td>IBM z15</td>
+            <td>IBM Telum 8-core</td>
+            <td>Up to 40 TB</td>
+            <td>Up to 1 TFLOP</td>
+            <td>~100,000 MIPS</td>
+            <td>Handles multiple simultaneous large-scale transactions</td>
+            <td>High (3–5 kW per frame)</td>
+            <td>Banking, insurance, enterprise data management</td>
+        </tr>
+        <tr>
+            <td>Mini Computer</td>
+            <td>DEC PDP-11</td>
+            <td>16-bit processor</td>
+            <td>512 KB – 4 MB</td>
+            <td>~1 MIPS</td>
+            <td>~1 MIPS</td>
+            <td>Multi-user support; processes several smaller tasks at once</td>
+            <td>Moderate (1–2 kW)</td>
+            <td>Small businesses, data logging, manufacturing control</td>
+        </tr>
+        <tr>
+            <td>Server</td>
+            <td>Dell PowerEdge R740</td>
+            <td>Intel Xeon Silver 4214R (12-core)</td>
+            <td>64 GB – 2 TB</td>
+            <td>3.2 GHz x 12 cores</td>
+            <td>~1,000 MIPS</td>
+            <td>Serves client requests, hosts websites, and manages networks</td>
+            <td>Moderate to High (1–2 kW)</td>
+            <td>Web hosting, database management, cloud services</td>
+        </tr>
+        <tr>
+            <td>Workstation</td>
+            <td>HP Z8 G4</td>
+            <td>Intel Xeon W-2295 (18-core)</td>
+            <td>128 GB</td>
+            <td>4.6 GHz turbo</td>
+            <td>~500 GFLOPS</td>
+            <td>Designed for single-user high-end computation and graphics</td>
+            <td>Moderate (600–800 W)</td>
+            <td>3D modeling, CAD, engineering design</td>
+        </tr>
+        <tr>
+            <td>Microcomputer</td>
+            <td>Apple MacBook Air M2</td>
+            <td>Apple M2 (8-core)</td>
+            <td>8–24 GB unified</td>
+            <td>3.5 GHz</td>
+            <td>~15–20 GFLOPS</td>
+            <td>Executes general computing tasks with integrated CPU/GPU</td>
+            <td>Low (30–60 W)</td>
+            <td>Education, entertainment, personal use</td>
+        </tr>
+    </table>
+
+    <h2>References</h2>
+    <ul>
+        <li>IBM Research. (2024). IBM Supercomputer Specifications. <a href="https://www.ibm.com">https://www.ibm.com</a></li>
+        <li>Dell Technologies. (2024). PowerEdge Server Product Overview.</li>
+        <li>HP Workstations. (2024). Z-Series Workstations for Professionals.</li>
+        <li>Computer History Museum. (2023). Evolution of Minicomputers.</li>
+        <li>Apple Inc. (2024). MacBook Air M2 Technical Specifications.</li>
+    </ul>
+
+    <a href="start.html" class="back-home">← Back to Portfolio Home</a>
+</div>
+
+<script>
+function toggleMode() {
+    document.body.classList.toggle("dark-mode");
+    const btn = document.querySelector(".toggle-btn");
+    btn.textContent = document.body.classList.contains("dark-mode") ? "☀️" : "🌙";
+}
+</script>
+
+</body>
+</html>

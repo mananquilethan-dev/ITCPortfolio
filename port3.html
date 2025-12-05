@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Portfolio 3 - Number Systems</title>
+    <style>
+        
+.topbar {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 95%;                     
+    max-width: 1100px;              
+    background-color: #2b4746;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 20px;
+    border-radius: 14px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+    z-index: 999;
+    margin-top: 15px;
+}
+
+
+.school-logo {
+    height: 45px;
+    width: 45px;
+    object-fit: contain;
+}
+
+
+.home-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    background: #e5d7d2;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.15);
+    font-size: 15px;
+    font-weight: bold;
+    color: #5a4d48;
+    text-decoration: none;
+    transition: 0.25s;
+}
+
+.home-btn:hover {
+    background: #d8c7c1;
+    transform: scale(1.05);
+}
+
+.home-btn img {
+    width: 18px;
+    height: 18px;
+}
+
+
+.toggle-btn {
+    cursor: pointer;
+    font-size: 18px;
+    background: none;
+    border: none;
+    margin-left: 15px;
+    color: #5a4d48;
+    padding: 8px 14px;
+    border-radius: 12px;
+    box-shadow: 2px 2px 6px rgba(0,0,0,0.15);
+    transition: 0.25s;
+}
+
+.toggle-btn:hover {
+    transform: scale(1.1);
+}
+
+
+.insight-wrapper {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin: 30px 0;
+}
+
+.insight-photo {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #c7a69d;
+    box-shadow: 2px 2px 6px rgba(0,0,0,0.15);
+}
+
+.insight-bubble {
+    background-color: #EDE1DD;
+    padding: 18px 22px;
+    border-radius: 20px;
+    border: 2px solid #c9a89e;
+    position: relative;
+    max-width: 650px;
+    line-height: 1.6;
+}
+
+.insight-bubble::before {
+    content: "";
+    position: absolute;
+    left: -15px;
+    top: 18px;
+    width: 0;
+    height: 0;
+    border-right: 15px solid #EDE1DD;
+    border-top: 12px solid transparent;
+    border-bottom: 12px solid transparent;
+}
+
+
+.dark-mode {
+    background-color: #2e2a29;
+    color: #e8e2df;
+}
+
+.dark-mode .topbar {
+    background: #2f2b29;
+}
+
+.dark-mode .home-btn {
+    background: #3c3533;
+    color: #e8dfdc;
+}
+
+.dark-mode .home-btn:hover {
+    background: #4a4340;
+}
+
+.dark-mode .toggle-btn {
+    color: #fff;
+}
+
+.dark-mode .school-logo {
+    filter: brightness(0.85);
+}
+
+.dark-mode .insight-bubble {
+    background-color: #3b3433;
+    border-color: #6e5b56;
+}
+
+.dark-mode h1, 
+.dark-mode h2,
+.dark-mode h3 {
+    color: #e8dfdc;
+}
+
+
+body {
+    margin: 0;
+    padding-top: 100px; 
+    font-family: Arial, sans-serif;
+    background-color: #F5EFEE;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3 {
+    color: #173534;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+h1 {
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+h2 {
+    font-size: 28px;
+    margin-top: 30px;
+}
+
+h3 {
+    font-size: 22px;
+    margin-top: 20px;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+ul {
+    margin-left: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ccc;
+}
+
+th, td {
+    padding: 8px;
+    text-align: center;
+}
+
+a {
+    color: #7b3a20;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.back-home {
+    display: block;
+    text-align: center;
+    margin-top: 50px;
+    font-weight: bold;
+    font-size: 20px;
+    color: #173534;
+}
+
+.back-home:hover {
+    color: #7b3a20;
+}
+    </style>
+</head>
+<body>
+
+
+<div class="topbar">
+    <img src="usclogoo.png" class="school-logo">
+    <a href="index.html" class="home-btn"><img src="homeicon.png">Home</a>
+    <button class="toggle-btn" onclick="toggleMode()">🌙</button>
+</div>
+
+<div class="container">
+    <h1>Number Systems: Comprehensive Study</h1>
+
+    <h2>What are Number Systems?</h2>
+    <p>A number system is a writing system for expressing numbers; it consists of a set of symbols and rules for using them to represent numerical values. Positional systems (e.g., decimal, binary) use place value, while non-positional systems (e.g., Roman numerals) do not. Number systems provide frameworks for arithmetic operations and number representation in computing, engineering, and everyday life.</p>
+
+    <h2>Types of Number Systems</h2>
+    <ul>
+        <li><strong>Decimal (Base-10)</strong>: digits 0–9 — human-centric, everyday arithmetic.</li>
+        <li><strong>Binary (Base-2)</strong>: digits 0–1 — fundamental in digital computers.</li>
+        <li><strong>Octal (Base-8) & Hexadecimal (Base-16)</strong>: compact representations used in computing.</li>
+        <li><strong>Positional vs Non-positional</strong>: structural distinction (Roman numerals, Egyptian numerals).</li>
+        <li><strong>Special systems</strong>: BCD (binary-coded decimal), Floating-point (IEEE 754), Modular arithmetic.</li>
+    </ul>
+
+    <h2>Uses / Significance of Each Number System</h2>
+    <ul>
+        <li><strong>Decimal:</strong> Primary system for commerce, education, and general counting.</li>
+        <li><strong>Binary:</strong> Used internally by digital circuits; reliable for two-state electronics.</li>
+        <li><strong>Octal/Hex:</strong> Easier compact notation for binary values, debugging, memory addresses.</li>
+        <li><strong>BCD:</strong> Preserves decimal digits for financial/decimal-exact computations.</li>
+        <li><strong>Floating-point:</strong> Represents real numbers with wide dynamic range for scientific computing.</li>
+        <li><strong>Modular arithmetic:</strong> Cryptography, hashing, cyclic computations.</li>
+    </ul>
+
+    <h2>Working Principles & Conversions</h2>
+    <p>Base-b positional notation: <em>value = Σ digit_i × b^i</em>. Binary arithmetic is implemented by logic gates (AND, OR, XOR). Floating-point uses sign, exponent, mantissa (IEEE 754 standard). BCD stores each decimal digit in a 4-bit nibble.</p>
+
+    <h3>Quick Table: Example Representations</h3>
+    <table>
+        <tr>
+            <th>Decimal</th>
+            <th>Binary</th>
+            <th>Hex</th>
+        </tr>
+        <tr>
+            <td>45</td>
+            <td>101101</td>
+            <td>0x2D</td>
+        </tr>
+        <tr>
+            <td>255</td>
+            <td>11111111</td>
+            <td>0xFF</td>
+        </tr>
+    </table>
+
+    <p>Floating-point (IEEE 754 single) example: -0.75 ≈ sign=1, exponent=126, mantissa=0.5</p>
+    <p>BCD example: decimal 92 → BCD 1001 0010</p>
+
+    
+    <h2>Insights</h2>
+    <div class="insight-wrapper">
+        <img src="itan2.jpg" class="insight-photo" alt="Your Photo">
+        <div class="insight-bubble">
+            Number systems form one of the most fundamental bridges between abstract mathematics and practical technology. Studying the variety of systems—from human-centric decimal to machine-native binary—revealed how representation choices influence computation, accuracy, and efficiency. Decimal's ubiquity stems from historical development, but binary is optimal for hardware. Octal and hexadecimal map compactly to binary, useful for programmers. Specialized formats like BCD and IEEE 754 address precision and range trade-offs. Modular arithmetic underpins cryptography. Learning number systems deepens understanding at both applied engineering and theoretical levels. It strengthened my appreciation for how low-level choices cascade into large system behaviors for correctness, performance, and societal trust in computations.
+        </div>
+    </div>
+
+    <a href="start.html" class="back-home">← Back to Portfolio Home</a>
+</div>
+
+<script>
+function toggleMode() {
+    document.body.classList.toggle("dark-mode");
+    const btn = document.querySelector(".toggle-btn");
+    btn.textContent = document.body.classList.contains("dark-mode") ? "☀️" : "🌙";
+}
+</script>
+
+</body>
+</html>
